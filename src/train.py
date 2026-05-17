@@ -29,10 +29,6 @@ LOG_EVERY_N    = 10             # print every N batches
 
 DEVICE = "cuda"
 
-
-# ──────────────────────────────────────────────
-# DATASET
-# ──────────────────────────────────────────────
 class RatingDataset(Dataset):
     def __init__(self, samples: list[tuple[str, float]], transform=None):
         self.samples   = samples
