@@ -1,0 +1,11 @@
+[project]
+name = "scrandlebot"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.0.3",
+    "pillow>=12.2.0",
+    "pyrate-limiter>=4.1.0",
+    "requests>=2.34.2",
+    "rich>=15.0.0",
+]
