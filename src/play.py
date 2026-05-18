@@ -45,13 +45,18 @@ def score_image(model, transform, path: str) -> float:
     return score
 
 if __name__ == "__main__":
-    model = load_model(str(pathlib.Path(__file__).parent.parent / "checkpoints/best_model.pt"), "convnext_base")
+    daily = False
+    model = load_model(str(pathlib.Path(__file__).parent.parent / "checkpoints/epoch_030.pt"), "convnext_base")
     tf = get_transform()
     
     temp_dir = pathlib.Path(__file__).parent.parent / "temp"
 
-    r = requests.get("https://scrandle.com/practice")
-    data = r.json()
+    if daily:
+        r = requests.get("https://scrandle.com/daily")
+        data = r.json()["data"]
+    else:
+        r = requests.get("https://scrandle.com/practice")
+        data = r.json()
     points = 0
 
     for i, curr_round in enumerate(data):
